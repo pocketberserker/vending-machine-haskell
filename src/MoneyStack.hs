@@ -24,4 +24,5 @@ init =
 >>> total MoneyStack {ten = 1, fifty = 0, hundred = 0, fiveHundred = 0, thousand = 0}
 10
 -}
-total = undefined
+total s =
+  ten s * 10 + fifty s * 50 + hundred s * 100 + fiveHundred s * 500 + thousand s * 1000
