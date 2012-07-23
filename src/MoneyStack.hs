@@ -1,5 +1,7 @@
 module MoneyStack where
 
+import Control.Monad.List ()
+
 data MoneyStack =
   MoneyStack { ten :: Int
              , fifty :: Int
@@ -24,5 +26,5 @@ init =
 >>> total MoneyStack {ten = 1, fifty = 0, hundred = 0, fiveHundred = 0, thousand = 0}
 10
 -}
-total s =
-  ten s * 10 + fifty s * 50 + hundred s * 100 + fiveHundred s * 500 + thousand s * 1000
+total = sum . sequence
+  [(*10) . ten, (*50) . fifty, (*100) . hundred, (*500) . fiveHundred, (*1000) . thousand]
