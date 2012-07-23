@@ -12,4 +12,9 @@ data MoneyStack =
 >>> MoneyStack.init
 MoneyStack {ten = 0, fifty = 0, hundred = 0, fiveHundred = 0, thousand = 0}
 -}
-init = undefined
+init =
+  MoneyStack { ten = 0
+             , fifty = 0
+	     , hundred = 0
+	     , fiveHundred = 0
+	     , thousand = 0}
