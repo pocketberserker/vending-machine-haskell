@@ -38,4 +38,5 @@ insert other = state $ \s -> (Just other, s)
 payback :: State MoneyStack [Int]
 payback = state $ \s -> (calc s, MoneyStack.init)
   where convert s (f, m) = take (f s) $ repeat m
-        calc s = convert s (ten, 10)
+        calc s = concat $ map (convert s)
+	  [(ten, 10), (fifty, 50), (hundred, 100), (fiveHundred, 500), (thousand, 1000)]
