@@ -32,6 +32,8 @@ insert other = state $ \s -> (Just other, s)
 
 >>> runState payback $ execState (insert 10) MoneyStack.init
 ([10],MoneyStack {ten = 0, fifty = 0, hundred = 0, fiveHundred = 0, thousand = 0})
+>>> runState payback $ execState (insert 10 >> insert 1000) MoneyStack.init
+([10,1000],MoneyStack {ten = 0, fifty = 0, hundred = 0, fiveHundred = 0, thousand = 0})
 -}
 payback :: State MoneyStack [Int]
 payback = state $ \s -> (calc s, MoneyStack.init)
