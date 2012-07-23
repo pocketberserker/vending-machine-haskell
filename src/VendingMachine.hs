@@ -27,3 +27,11 @@ insert 100 = state $ \s -> (Nothing, s { hundred = hundred s + 1})
 insert 500 = state $ \s -> (Nothing, s { fiveHundred = fiveHundred s + 1})
 insert 1000 = state $ \s -> (Nothing, s { thousand = thousand s + 1})
 insert other = state $ \s -> (Just other, s)
+
+{-| function 'payback'
+
+>>> runState payback $ execState (insert 10) MoneyStack.init
+([10],MoneyStack {ten = 0, fifty = 0, hundred = 0, fiveHundred = 0, thousand = 0})
+-}
+payback :: State MoneyStack [Int]
+payback = undefined
