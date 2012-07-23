@@ -10,4 +10,4 @@ import MoneyStack
 >>> runState (insert 10 >> insert 10) MoneyStack.init
 (Nothing,MoneyStack {ten = 2, fifty = 0, hundred = 0, fiveHundred = 0, thousand = 0})
 -}
-insert 10 = state $ \s -> (Nothing, s { ten = 1})
+insert 10 = state $ \s -> (Nothing, s { ten = ten s + 1})
